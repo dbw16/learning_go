@@ -10,16 +10,41 @@
 //or to post your own solution or discuss the exercise in the comments below.
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
+
+// return a^n
+func Power(a, n int) int {
+	var i, result int
+	result = 1
+	for i = 0; i < n; i++ {
+		result *= a
+	}
+	return result
+}
 
 func main() {
 	//first we will hard code in the number we want to use
 	num := 9
+
+	//first we will do it in a slice
 	//we will create a array of length (num * 2) - 1
 	var slice = make([]int, num*2-1)
 	for i := 0; i < num; i++ {
+
 		slice[i] = i + 1
 		slice[((num*2)-1)-i-1] = i + 1
 	}
 	fmt.Print(slice)
+
+	//then we will do it using int
+	var lNewNumber, rNewNumber int
+	for i := 0; i < num; i++ {
+		val := i + 1
+		rNewNumber += val * Power(10, val-1)
+		lNewNumber += val * Power(10, ((num*2)-1)-i-1)
+	}
+	rNewNumber -= num * Power(10, num-1)
+	fmt.Println(rNewNumber + lNewNumber)
 }
