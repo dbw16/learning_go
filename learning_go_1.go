@@ -36,8 +36,8 @@ func Rotations(myList []int) [][]int {
 
 func main() {
 	//first we will hard code in the array we want to rotate
-	my_list := [...]int{1, 2, 3}
+	myList := [...]int{1, 2, 3}
 
 	//print all the rotations of this list
-	fmt.Print(Rotations(my_list[:]))
+	fmt.Print(Rotations(myList[:]))
 }
