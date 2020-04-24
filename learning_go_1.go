@@ -16,20 +16,20 @@ import (
 )
 
 //this will return a left rotation of a list
-func rotate_left(my_list []int) []int {
-	new_array := my_list[1:]
-	new_array = append(new_array, my_list[0])
-	return new_array
+func rotateLeft(myList []int) []int {
+	newArray := myList[1:]
+	newArray = append(newArray, myList[0])
+	return newArray
 
 }
 
 //////this will return a list of all possible rotations
-func Rotations(my_list []int) [][]int {
-	rotations := make([][]int, len(my_list))
-	rotations[0] = my_list[:]
+func Rotations(myList []int) [][]int {
+	rotations := make([][]int, len(myList))
+	rotations[0] = myList[:]
 
-	for i := 1; i < len(my_list); i++ {
-		rotations[i] = rotate_left(rotations[i-1])
+	for i := 1; i < len(myList); i++ {
+		rotations[i] = rotateLeft(rotations[i-1])
 	}
 	return rotations
 }
@@ -38,6 +38,6 @@ func main() {
 	//first we will hard code in the array we want to rotate
 	my_list := [...]int{1, 2, 3}
 
-	//print all the roations of this list
+	//print all the rotations of this list
 	fmt.Print(Rotations(my_list[:]))
 }
